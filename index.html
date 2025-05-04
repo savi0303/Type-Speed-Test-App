@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Typing Speed Test</h1>
+        
+        <div class="settings">
+            <div class="difficulty">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="timer-settings">
+                <label for="time">Time (seconds):</label>
+                <select id="time">
+                    <option value="30">30</option>
+                    <option value="60" selected>60</option>
+                    <option value="120">120</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="typing-test">
+            <div id="timer" class="timer">60</div>
+            
+            <div class="text-display" id="text-display"></div>
+            
+            <textarea id="typing-input" class="typing-input" placeholder="Click here to start typing..." disabled></textarea>
+            
+            <button id="start-btn" class="btn">Start Test</button>
+            <button id="reset-btn" class="btn" disabled>Reset</button>
+        </div>
+
+        <div class="results" id="results">
+            <div class="result-item">
+                <span class="result-label">WPM:</span>
+                <span class="result-value" id="wpm">0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Accuracy:</span>
+                <span class="result-value" id="accuracy">0%</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Correct Words:</span>
+                <span class="result-value" id="correct-words">0</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Wrong Words:</span>
+                <span class="result-value" id="wrong-words">0</span>
+            </div>
+        </div>
+
+        <div class="high-scores">
+            <h2>Personal Best</h2>
+            <div class="scores-container" id="high-scores-container">
+                <div class="no-scores" id="no-scores">No scores yet. Complete a test to see your stats!</div>
+                <div class="score-list" id="score-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by [Your Name] | <a href="https://github.com/yourusername/typing-speed-test" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
