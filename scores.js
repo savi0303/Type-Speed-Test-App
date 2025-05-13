@@ -58,18 +58,27 @@ function exportScores() {
             return;
         }
 
-        const csvContent = [
-            'Date,Difficulty,WPM,Accuracy,Correct Words,Wrong Words',
-            ...scores.map(score => 
-                `${score.date},${score.difficulty},${score.wpm},${score.accuracy},${score.correctWords},${score.wrongWords}`
-            )
+        // Format scores as plain text
+        const txtContent = [
+            'Typing Speed Test Results',
+            '========================',
+            ...scores.map((score, index) => 
+                `Score ${index + 1}:\n` +
+                `Date: ${score.date}\n` +
+                `Difficulty: ${score.difficulty}\n` +
+                `WPM: ${score.wpm}\n` +
+                `Accuracy: ${score.accuracy}%\n` +
+                `Correct Words: ${score.correctWords}\n` +
+                `Wrong Words: ${score.wrongWords}\n`
+            ),
+            '========================'
         ].join('\n');
 
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const blob = new Blob([txtContent], { type: 'text/plain;charset=utf-8;' });
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.setAttribute('href', url);
-        link.setAttribute('download', 'typing_scores.csv');
+        link.setAttribute('download', 'typing_scores.txt');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
