@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Typing Speed Test Application">
     <title>Typing Speed Test</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,39 +12,49 @@
 </head>
 <body>
     <div class="container">
-        <h1>Typing Speed Test</h1>
-        
-        <div class="settings">
+        <header>
+            <h1>Typing Speed Test</h1>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        </header>
+
+        <div class="settings" role="region" aria-label="Test settings">
             <div class="difficulty">
                 <label for="difficulty">Difficulty:</label>
-                <select id="difficulty">
+                <select id="difficulty" aria-describedby="difficulty-desc">
                     <option value="easy">Easy</option>
                     <option value="medium" selected>Medium</option>
                     <option value="hard">Hard</option>
                 </select>
+                <p id="difficulty-desc" class="sr-only">Select test difficulty level</p>
             </div>
             <div class="timer-settings">
                 <label for="time">Time (seconds):</label>
-                <select id="time">
+                <select id="time" aria-describedby="time-desc">
                     <option value="30">30</option>
                     <option value="60" selected>60</option>
                     <option value="120">120</option>
                 </select>
+                <p id="time-desc" class="sr-only">Select test duration</p>
             </div>
         </div>
 
-        <div class="typing-test">
-            <div id="timer" class="timer">60</div>
-            
-            <div class="text-display" id="text-display"></div>
-            
-            <textarea id="typing-input" class="typing-input" placeholder="Click here to start typing..." disabled></textarea>
-            
-            <button id="start-btn" class="btn">Start Test</button>
-            <button id="reset-btn" class="btn" disabled>Reset</button>
+        <div class="typing-test" role="region" aria-label="Typing test area">
+            <div id="timer" class="timer" aria-live="polite">60</div>
+            <div class="text-display" id="text-display" aria-live="off"></div>
+            <textarea 
+                id="typing-input" 
+                class="typing-input" 
+                placeholder="Click here to start typing..." 
+                aria-label="Typing input area"
+                disabled
+            ></textarea>
+            <div class="button-group">
+                <button id="start-btn" class="btn">Start Test</button>
+                <button id="reset-btn" class="btn" disabled>Reset</button>
+            </div>
         </div>
 
-        <div class="results" id="results">
+        <div class="results" id="results" role="region" aria-label="Test results">
             <div class="result-item">
                 <span class="result-label">WPM:</span>
                 <span class="result-value" id="wpm">0</span>
@@ -63,7 +74,10 @@
         </div>
 
         <div class="high-scores">
-            <h2>Personal Best</h2>
+            <div class="scores-header">
+                <h2>Personal Best</h2>
+                <button id="export-scores" class="btn">Export Scores</button>
+            </div>
             <div class="scores-container" id="high-scores-container">
                 <div class="no-scores" id="no-scores">No scores yet. Complete a test to see your stats!</div>
                 <div class="score-list" id="score-list"></div>
@@ -75,6 +89,6 @@
         <p>Designed by <a href="https://my-portfolio-kappa-ochre.vercel.app/" target="_blank">Savindu Weththasinghe</a></p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
