@@ -1,4 +1,5 @@
-export function getHighScores() {
+// scores.js - No more export/import
+function getHighScores() {
     try {
         const scores = localStorage.getItem('typingSpeedScores');
         return scores ? JSON.parse(scores) : [];
@@ -8,7 +9,7 @@ export function getHighScores() {
     }
 }
 
-export function updateHighScoresDisplay() {
+function updateHighScoresDisplay() {
     try {
         const scores = getHighScores();
         const noScoresElement = document.getElementById('no-scores');
@@ -45,7 +46,7 @@ export function updateHighScoresDisplay() {
     }
 }
 
-export function initScoreExport() {
+function initScoreExport() {
     const exportBtn = document.getElementById('export-scores');
     exportBtn.addEventListener('click', exportScores);
 }

@@ -1,6 +1,4 @@
-import { getHighScores, updateHighScoresDisplay } from './scores.js';
-import { debounce } from './utils.js';
-
+// typing-test.js - No more import/export
 // DOM Elements
 const elements = {
     textDisplay: document.getElementById('text-display'),
@@ -57,7 +55,7 @@ const texts = {
     ]
 };
 
-export function initTypingTest() {
+function initTypingTest() {
     bindEvents();
     updateHighScoresDisplay();
     generateText();

@@ -1,4 +1,4 @@
-export function initThemeToggle() {
+function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
     

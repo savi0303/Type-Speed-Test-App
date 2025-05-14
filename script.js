@@ -1,8 +1,3 @@
-import { initTypingTest } from './typing-test.js';
-import { initThemeToggle } from './theme.js';
-import { initScoreExport } from './scores.js';
-
-// Initialize application
 document.addEventListener('DOMContentLoaded', () => {
     try {
         initTypingTest();
